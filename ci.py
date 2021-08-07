@@ -27,14 +27,16 @@ def changeWallpaper():
     rand = random.randint(0,1000)
     L1 = getImage()
     i = rand%len(L1)
+
     print('开始',i)
     while True:
         L2 = getImage()
-        Windows_img(path+'\{}'.format(L2[i]))
-        time.sleep(600)  # 设置壁纸更换间隔，这里为10秒，根据用户自身需要自己设置秒数
-        i += 1
-        if i==len(L2):  # 如果是最后一张图片，则重新到第一张
+        if i >= len(L2):  # 如果是最后一张图片，则重新到第一张
             i=0
+        print (i,len(L2))
+        Windows_img(path+'\{}'.format(L2[i]))
+        time.sleep(10)  # 设置壁纸更换间隔，这里为600秒，根据用户自身需要自己设置秒数
+        i += 1
 
 if __name__ == '__main__':
     changeWallpaper()
